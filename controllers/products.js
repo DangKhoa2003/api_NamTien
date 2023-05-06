@@ -4,7 +4,6 @@ import ProductMessage from "../models/productMessage.js";
 export const getProducts = async (req, res) => {
   try {
     const ProductMessages = await ProductMessage.find();
-
     res.status(200).json(ProductMessages);
   } catch (error) {
     res.status(404).json({ message: error.message });

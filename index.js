@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import productRoutes from "./routes/products.js";
-
+import adminRoutes from "./routes/admin.js";
+import bannerRoutes from "./routes/banner.js";
+import postRoutes from "./routes/post.js";
+import companyRoutes from "./routes/company.js";
+import videoRoutes from "./routes/video.js";
 const app = express();
 
 dotenv.config();
@@ -14,6 +18,11 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/products", productRoutes);
+app.use("/admin", adminRoutes);
+app.use("/banner", bannerRoutes);
+app.use("/post", postRoutes);
+app.use("/company", companyRoutes);
+app.use("/video", videoRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello API");
